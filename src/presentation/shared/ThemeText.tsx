@@ -1,3 +1,4 @@
+import { useTheme } from "@/hooks/use-theme";
 import React from "react";
 import { StyleSheet, Text, TextProps } from "react-native";
 
@@ -21,9 +22,13 @@ const ThemeText = ({
   const h2 = type == "h2" ? "text-xl" : undefined;
   const fontBold = type == "semi-bold" ? "font-semibold" : undefined;
   const link = type == "link" ? "font-normal underline" : undefined;
+  const { text } = useTheme();
   return (
     <Text
       className={[normal, h1, h2, fontBold, link, className].join(" ")}
+      style={{
+        color: text,
+      }}
       {...props}
     >
       {children}

@@ -24,7 +24,7 @@ const MenuItem = ({
   isLast = false,
 }: MenuItemProps): React.JSX.Element => {
   const [route_name] = name.split("/");
-  const { primary, text } = useTheme();
+  const { primary } = useTheme();
 
   return (
     <Pressable
@@ -50,14 +50,7 @@ const MenuItem = ({
           color={primary}
           className="mr-5"
         />
-        <ThemeText
-          type="h2"
-          style={{
-            color: text,
-          }}
-        >
-          {title}{" "}
-        </ThemeText>
+        <ThemeText type="h2">{title}</ThemeText>
       </View>
     </Pressable>
   );

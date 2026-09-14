@@ -1,18 +1,17 @@
 import { useTheme } from "@/hooks/use-theme";
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
-import { useColorScheme } from "react-native";
+import { ThemeChangerContextProvider } from "@/presentation/context/ThemeChangerContext";
+import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../../global.css";
 
 // SplashScreen.preventAutoHideAsync();
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
   const { background } = useTheme();
 
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: background }}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <ThemeChangerContextProvider>
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: background }}>
         <Stack
           screenOptions={{
             headerShadowVisible: false,
@@ -32,7 +31,7 @@ export default function TabLayout() {
             />
           ))} */}
         </Stack>
-      </ThemeProvider>
-    </GestureHandlerRootView>
+      </GestureHandlerRootView>
+    </ThemeChangerContextProvider>
   );
 }

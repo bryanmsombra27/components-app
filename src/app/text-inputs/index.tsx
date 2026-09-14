@@ -1,10 +1,10 @@
 import ThemeCard from "@/presentation/shared/ThemeCard";
 import ThemeText from "@/presentation/shared/ThemeText";
-import ThemeTextInput from "@/presentation/shared/themeTextInput";
 import ThemeView from "@/presentation/shared/ThemeView";
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
-const isIOS = (Platform.OS = "ios");
+import ThemeTextInput from "../../presentation/shared/ThemeTextInput";
+const isIOS = Platform.OS == "ios";
 
 const TextInputsScreen = () => {
   const [form, setForm] = useState<{

@@ -13,9 +13,9 @@ const ThemeTextInput = ({
 }: ThemeTextInputProps): React.JSX.Element => {
   return (
     <TextInput
-      {...props}
       className={`px-2 py-4 text-black dark:text-white  ${className}`}
       placeholderTextColor="grey"
+      {...props}
     />
   );
 };
